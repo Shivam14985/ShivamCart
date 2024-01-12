@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".AddProuctsActivity"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/serch_bar_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                android:hint="Enter Your Product Type"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                <AutoCompleteTextView
+                    android:id="@+id/EtProductType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:layout_marginHorizontal="18dp"
+                    android:background="#00000000"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <ImageView
+                android:id="@+id/MobilePhoto"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/AddMobileImages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:textSize="18sp"
+                android:backgroundTint="#0D47A1"
+                android:text="Add images of product"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/serch_bar_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+
+                android:hint="Enter Company of Your Product"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                <AutoCompleteTextView
+                    android:id="@+id/EtProductCompany"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="18dp"
+                    android:background="#00000000"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <EditText
+                android:id="@+id/ET_ProductDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:minHeight="56dp"
+                android:background="@drawable/serch_bar_bg"
+                android:hint="Enter Model Of Your mobile"
+                android:inputType="textMultiLine"
+                android:padding="8dp" />
+
+            <EditText
+                android:id="@+id/et_productRam"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:height="56dp"
+                android:background="@drawable/serch_bar_bg"
+                android:hint="Enter Your Product's Ram"
+                android:inputType="number"
+                android:padding="8dp" />
+
+            <EditText
+                android:id="@+id/Et_ActualPRice"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:height="56dp"
+                android:background="@drawable/serch_bar_bg"
+                android:hint="Actual Price of your Product"
+                android:inputType="number"
+                android:padding="8dp" />
+
+            <EditText
+                android:id="@+id/Et_SellingPrice"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:height="56dp"
+                android:background="@drawable/serch_bar_bg"
+                android:ems="10"
+                android:hint="Selling Price of your Product"
+                android:inputType="number"
+                android:padding="8dp" />
+
+            <EditText
+                android:id="@+id/Et_Dicount"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:height="56dp"
+                android:background="@drawable/serch_bar_bg"
+                android:hint="Total Discount of your Product"
+                android:inputType="none"
+                android:padding="8dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/mbile_color"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:height="56dp"
+                android:background="@drawable/serch_bar_bg"
+                android:hint="Enter Color of your Product"
+                android:inputType="none"
+                android:padding="8dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/mobile_Storage"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:height="56dp"
+                android:background="@drawable/serch_bar_bg"
+                android:hint="Enter Storage of your Product"
+                android:inputType="none"
+                android:padding="8dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Have you check all above details carefully ?" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/UploadToDatabase"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:background="@drawable/btn_upload"
+                android:text="Sell Your Product" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

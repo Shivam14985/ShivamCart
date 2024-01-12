@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Shivam\'s Cart</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="become_seller">Become a seller in Shivam\'s Cart. In our platform you can send your products easily in more profits. We provide best services to our seller.</string>
+    <string name="name">Otp Sent</string>
+</resources>

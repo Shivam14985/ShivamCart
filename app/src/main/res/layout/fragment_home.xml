@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".Fragments.HomeFragment">
+
+    <ScrollView
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/aclonica"
+                    android:gravity="center_vertical"
+                    android:text="Shivam's Cart"
+                    android:textColor="@color/black"
+                    android:textSize="28sp" />
+            </LinearLayout>
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_slider"
+                app:iss_auto_cycle="true"
+                app:iss_corner_radius="20"
+                app:iss_delay="2000"
+                app:iss_period="1500"
+                app:iss_text_align="CENTER"
+                android:layout_width="350dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                  />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/mobiles"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:layout_width="56dp"
+                            android:layout_height="54dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/oneplusmobiles"
+                            app:civ_circle_background_color="#E4E4E4" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="Mobiles"
+                            android:textColor="@color/black"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/clothes"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:layout_width="56dp"
+                            android:layout_height="54dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/clothes"
+                            app:civ_circle_background_color="#E4E4E4" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="Fashion"
+                            android:textColor="@color/black"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:layout_width="56dp"
+                            android:layout_height="54dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/electronics"
+                            app:civ_circle_background_color="#E4E4E4" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="Electronics"
+                            android:textColor="@color/black"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:layout_width="56dp"
+                            android:layout_height="54dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/grocery"
+                            app:civ_circle_background_color="#E4E4E4" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="Grocery"
+                            android:textColor="@color/black"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:layout_width="56dp"
+                            android:layout_height="54dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/home_appliances"
+
+                            app:civ_circle_background_color="#E4E4E4" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="Home &amp; .. "
+                            android:textColor="@color/black"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:layout_width="56dp"
+                            android:layout_height="54dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/appliances"
+                            app:civ_circle_background_color="#E4E4E4" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="Appliances"
+                            android:textColor="@color/black"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:layout_width="56dp"
+                            android:layout_height="54dp"
+                            android:layout_gravity="center_horizontal"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="More"
+                            android:textColor="@color/black"></TextView>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Work in Progress "
+                android:textColor="@color/black"
+                android:textSize="22sp"></TextView>
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

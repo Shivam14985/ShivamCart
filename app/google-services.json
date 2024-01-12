@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "584124365256",
+    "project_id": "shivam-s-cart-c0e04",
+    "storage_bucket": "shivam-s-cart-c0e04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584124365256:android:f1af4281f9d080baa3a8fd",
+        "android_client_info": {
+          "package_name": "com.example.shivamscart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWpuCGItVh8tSrUbcRKK4ZKc8vqE5D6XQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
