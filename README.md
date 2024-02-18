@@ -1,1 +1,1 @@
-https://drive.google.com/drive/folders/1TDLlXjG_e0XCtrcg5PoN_HJJfkidGal0
+https://appdistribution.firebase.dev/i/2e20e03a98732476
