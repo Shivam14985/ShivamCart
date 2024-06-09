@@ -32,11 +32,11 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class SignUp extends AppCompatActivity {
-    final Calendar myCalendar = Calendar.getInstance();
     ActivitySignUpBinding binding;
     FirebaseAuth auth;
     FirebaseDatabase database;
     ProgressDialog progressDialog;
+
     private BroadcastReceiver broadcastReceiver;
 
     @Override
@@ -46,26 +46,17 @@ public class SignUp extends AppCompatActivity {
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.progressBar2.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                binding.progressBar2.setVisibility(View.GONE);
-                binding.scr.setVisibility(View.VISIBLE);
-            }
-        }, 1000);
         broadcastReceiver = new NetworkBroadcast();
         registerReceiver(broadcastReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
-        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.bounce);
-        final Animation animation1 = AnimationUtils.loadAnimation(this, R.anim.bonceexit);
 
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
 
         progressDialog = new ProgressDialog(SignUp.this);
-        progressDialog.setTitle("Please Wait");
+        progressDialog.setMessage("Registering");
+
 
         //Date Picker
-
         binding.EtDOB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,7 +71,7 @@ public class SignUp extends AppCompatActivity {
 
                         // on below line we are getting
                         // our day, month and year.
-                        int year = c.get(Calendar.YEAR);
+                        int year = c.get(Calendar.YEAR)-18;
                         int month = c.get(Calendar.MONTH);
                         int day = c.get(Calendar.DAY_OF_MONTH);
 
@@ -93,7 +84,7 @@ public class SignUp extends AppCompatActivity {
                                     public void onDateSet(DatePicker view, int year,
                                                           int monthOfYear, int dayOfMonth) {
                                         // on below line we are setting date to our edit text.
-                                        binding.EtDOB.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                                        binding.EtDOB.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
 
                                     }
                                 },
@@ -112,6 +103,9 @@ public class SignUp extends AppCompatActivity {
         binding.signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final Animation animation = AnimationUtils.loadAnimation(SignUp.this, R.anim.bounce);
+                final Animation animation1 = AnimationUtils.loadAnimation(SignUp.this, R.anim.bonceexit);
+
                 binding.signup.startAnimation(animation);
                 binding.signup.postDelayed(new Runnable() {
                     @Override
@@ -128,7 +122,7 @@ public class SignUp extends AppCompatActivity {
                 RadioGroup rdbgender = findViewById(R.id.RadioGroup);
                 RadioButton rdbselectedgen = findViewById(rdbgender.getCheckedRadioButtonId());
                 String gender = rdbselectedgen.getText().toString();
-                if (Email.isEmpty() && Number.isEmpty()&& Name.isEmpty() && Password.isEmpty()) {
+                if (binding.EtEmail.getText().toString().isEmpty() && binding.EtPhone.getText().toString().isEmpty()&& binding.EtName.getText().toString().isEmpty() && binding.EtPassword.getText().toString().isEmpty()&&binding.EtDOB.getText().toString().isEmpty()) {
                     Toast.makeText(SignUp.this, "Fill all details", Toast.LENGTH_SHORT).show();}
                 else {
                     progressDialog.show();
@@ -138,21 +132,19 @@ public class SignUp extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     progressDialog.dismiss();
                                     if (task.isSuccessful()) {
-                                        Users users = new Users(Email, Number, Name, Password, Dob, gender, Seller);
-                                        String id = task.getResult().getUser().getUid();
-                                        database.getReference().child("Users").child(id).setValue(users);
-                                        binding.scr.setVisibility(View.GONE);
-                                        binding.progressBar2.setVisibility(View.GONE);
+                                        binding.LayoutForEmailAuthentication.setVisibility(View.GONE);
                                         binding.registeredsuccess.setVisibility(View.VISIBLE);
                                         binding.registeredsuccess.postDelayed(new Runnable() {
                                             @Override
                                             public void run() {
-
+                                                Users users = new Users(Email, Number, Name, Password, Dob, gender, Seller);
+                                                String id = task.getResult().getUser().getUid();
+                                                database.getReference().child("Users").child(id).setValue(users);
                                                 Toast.makeText(SignUp.this, "Registered", Toast.LENGTH_SHORT).show();
                                                 Intent intent = new Intent(SignUp.this, MainActivity.class);
                                                 startActivity(intent);
                                             }
-                                        }, 4700);
+                                        },4500);
                                     } else {
                                         Toast.makeText(SignUp.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     }
@@ -166,15 +158,8 @@ public class SignUp extends AppCompatActivity {
         binding.logintxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                binding.logintxt.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        binding.progressBar2.setVisibility(View.VISIBLE);
-                        binding.scr.setVisibility(View.GONE);
                         Intent intent = new Intent(SignUp.this, LoginActivity.class);
                         startActivity(intent);
-                    }
-                }, 1500);
             }
         });
 
@@ -182,6 +167,8 @@ public class SignUp extends AppCompatActivity {
         binding.AuthPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final Animation animation = AnimationUtils.loadAnimation(SignUp.this, R.anim.bounce);
+                final Animation animation1 = AnimationUtils.loadAnimation(SignUp.this, R.anim.bonceexit);
                 binding.AuthPhone.startAnimation(animation);
                 binding.AuthPhone.postDelayed(new Runnable() {
                     @Override
@@ -195,13 +182,6 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
-    private void updateLabel() {
-        String myFormat = "dd/mm/yyyy";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);
-
-        binding.EtDOB.setText(dateFormat.format(myCalendar.getTime()));
-
-    }
 
     public void onBackPressed() {
         finishAffinity();

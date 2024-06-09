@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="120dp"
-    xmlns:gbp="http://schemas.android.com/apk/res-auto"
-    android:background="#00FFFFFF"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:gravity="center_vertical">
 
     <TextView
@@ -15,20 +14,31 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+
         android:text="Please Wait........."
         android:textColor="@color/black" />
 
-    <com.jpardogo.android.googleprogressbar.library.GoogleProgressBar
+<!--    <com.jpardogo.android.googleprogressbar.library.GoogleProgressBar-->
+<!--        android:id="@+id/pg1"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_below="@id/tv1"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        gbp:type="folding_circles" />-->
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/pg1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_below="@id/tv1"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        gbp:type="folding_circles" />
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/loaing_animation"
+        app:lottie_repeatCount="10000"
+
+        app:lottie_repeatMode="restart" />
 
 </RelativeLayout>

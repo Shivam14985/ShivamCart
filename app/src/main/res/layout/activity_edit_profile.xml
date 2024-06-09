@@ -7,212 +7,354 @@
     android:background="@color/white"
     android:orientation="vertical"
     tools:context=".EditPRofile">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        app:boxStrokeColor="@color/black"
-        app:cursorColor="@color/black"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="32dp"
-        android:hint="Your Name"
-        android:textColorHint="@color/black"
-        >
-
-        <!--this is the actual edit text which takes the input-->
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/NAme"
-            android:layout_width="match_parent"
-            android:text=""
-            android:inputType="textPersonName"
-            android:textColor="@color/black"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/ChangeName"
-        android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/dicount_bg"
-        android:textColor="@color/white"
-        android:text="Update Name"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="32dp"
-        ></androidx.appcompat.widget.AppCompatButton>
+        android:background="@color/ToolbarBlue"
+        android:orientation="horizontal">
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        app:boxStrokeColor="@color/black"
-        app:cursorColor="@color/black"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="32dp"
-        android:hint="Your Email"
-        android:textColorHint="@color/black"
-        >
-
-        <!--this is the actual edit text which takes the input-->
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Email"
-            android:layout_width="match_parent"
-            android:text=""
-            android:inputType="textEmailAddress"
-            android:textColor="@color/black"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/cantemail"
-    android:layout_marginHorizontal="32dp"
-    android:layout_marginTop="3dp"
-    android:visibility="gone"
-    android:text="Can not change Email"
-    android:textColor="#BC0000"
-    ></TextView>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/EnterEmail"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/dicount_bg"
-        android:visibility="gone"
-        android:textColor="@color/white"
-        android:text="Submit Email"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="32dp"
-        ></androidx.appcompat.widget.AppCompatButton>
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        app:boxStrokeColor="@color/black"
-        app:cursorColor="@color/black"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="32dp"
-        android:hint="Your Number"
-        android:textColorHint="@color/black"
-        >
-
-        <!--this is the actual edit text which takes the input-->
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Phone"
-            android:layout_width="match_parent"
-            android:text=""
-            android:textColor="@color/black"
-            android:inputType="phone"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cantphone"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="3dp"
-        android:text="Can not change Mobile Number"
-        android:textColor="#BC0000"
-        ></TextView>
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="32dp"
-        android:visibility="gone"
-        android:id="@+id/RadioGroupup"
-        >
-
-        <RadioButton
-            android:id="@+id/MAle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Male"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:checked="true"/>
-
-        <RadioButton
-            android:id="@+id/Female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Female"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
-
-        <RadioButton
-            android:id="@+id/others"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Other"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
-    </RadioGroup>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/gender"
-        android:layout_width="match_parent"
-        android:visibility="gone"
-        android:layout_height="50dp"
-        android:background="@drawable/dicount_bg"
-        android:textColor="@color/white"
-        android:text="Submit Gender"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:layout_marginHorizontal="32dp"
-        ></androidx.appcompat.widget.AppCompatButton>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            app:boxStrokeColor="@color/black"
-            app:cursorColor="@color/black"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="32dp"
-            android:hint="Your Address"
-            android:textColorHint="@color/black"
-            >
-
-            <!--this is the actual edit text which takes the input-->
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Address"
-                android:layout_width="match_parent"
-                android:text=""
-                android:textColor="@color/black"
-                android:layout_height="wrap_content" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/ChangAddress"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/serch_bar_bg"
+            android:layout_gravity="center_vertical"
+            android:padding="12dp"
+            android:src="@drawable/backarrow" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center_vertical"
+            android:text="Edit Profile"
             android:textColor="@color/black"
-            android:text="Update Address"
-            android:textAllCaps="false"
-            android:textSize="18sp"
-            android:layout_marginVertical="10dp"
-            android:enabled="false"
-            android:layout_marginHorizontal="32dp"
-            ></androidx.appcompat.widget.AppCompatButton>
+            android:textSize="28sp" />
 
     </LinearLayout>
-</ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="32dp"
+                android:hint="Your Name"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:cursorColor="@color/black">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/NAme"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/ChangeName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/dicount_bg"
+                android:text="Update Name"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"></androidx.appcompat.widget.AppCompatButton>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="32dp"
+                android:hint="Your Email"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:cursorColor="@color/black">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:text=""
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/cantemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="3dp"
+                android:text="Can not change Email"
+                android:textColor="#BC0000"
+                android:visibility="gone"></TextView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/EnterEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/dicount_bg"
+                android:text="Submit Email"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:visibility="gone"></androidx.appcompat.widget.AppCompatButton>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="32dp"
+                android:hint="Your Number"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:cursorColor="@color/black">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:text=""
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/cantphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="3dp"
+                android:text="Can not change Mobile Number"
+                android:textColor="#BC0000"></TextView>
+
+            <RadioGroup
+                android:id="@+id/RadioGroupup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginVertical="10dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <RadioButton
+                    android:id="@+id/MAle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Male"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/Female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/others"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Other"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </RadioGroup>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/gender"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="32dp"
+                android:background="@drawable/dicount_bg"
+                android:text="Submit Gender"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:visibility="gone"></androidx.appcompat.widget.AppCompatButton>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="32dp"
+                android:hint="Your Address"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:cursorColor="@color/black">
+
+                <!--this is the actual edit text which takes the input-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/ChangAddress"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/serch_bar_bg"
+                android:enabled="false"
+                android:text="Update Address"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="18sp"></androidx.appcompat.widget.AppCompatButton>
+
+            <LinearLayout
+                android:id="@+id/SliderLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/addSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/dicount_bg"
+                    android:backgroundTint="#001A85"
+                    android:gravity="center"
+                    android:text="Add Poster Slider"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/SliderImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/addSlider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/dicount_bg"
+                    android:backgroundTint="#001A85"
+                    android:gravity="center"
+                    android:text="Add Description"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/SliderImage1"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/addSlider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/dicount_bg"
+                    android:backgroundTint="#001A85"
+                    android:gravity="center"
+                    android:text="Add Description"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/SliderImage2"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/addSlider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/dicount_bg"
+                    android:backgroundTint="#001A85"
+                    android:gravity="center"
+                    android:text="Add Description"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/SliderImage3"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/addSlider4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/dicount_bg"
+                    android:backgroundTint="#001A85"
+                    android:gravity="center"
+                    android:text="Add Description"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/SliderImage4"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/UploadSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:enabled="false"
+                    android:text="Upload Slider"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
 </androidx.appcompat.widget.LinearLayoutCompat>

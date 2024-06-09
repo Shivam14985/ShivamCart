@@ -1,56 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".Fragments.HomeFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/ToolbarBlue"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center_vertical"
+            android:text="Shivam's Cart"
+            android:textColor="@color/black"
+            android:textSize="28sp" />
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:padding="16dp"
+            android:src="@drawable/search_icon" />
+
+    </LinearLayout>
+
     <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        app:layout_constraintVertical_bias="0.5">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerFrameLayout"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal">
-
-                <TextView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:fontFamily="@font/aclonica"
-                    android:gravity="center_vertical"
-                    android:text="Shivam's Cart"
-                    android:textColor="@color/black"
-                    android:textSize="28sp" />
-            </LinearLayout>
-
-            <com.denzcoskun.imageslider.ImageSlider
-                android:id="@+id/image_slider"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_edittext"
+                android:backgroundTint="#CACACA"
                 app:iss_auto_cycle="true"
-                app:iss_corner_radius="20"
+                app:iss_corner_radius="30"
                 app:iss_delay="2000"
                 app:iss_period="1500"
                 app:iss_text_align="CENTER"
-                android:layout_width="350dp"
-                android:layout_height="180dp"
+                app:shimmer_auto_start="true"></com.facebook.shimmer.ShimmerFrameLayout>
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_slider"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="10dp"
-                  />
+                android:visibility="gone"
+                app:iss_auto_cycle="true"
+                app:iss_corner_radius="30"
+                app:iss_delay="2000"
+                app:iss_period="1500"
+                app:iss_text_align="CENTER"></com.denzcoskun.imageslider.ImageSlider>
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
@@ -68,11 +96,15 @@
                         android:layout_height="70dp"
                         android:orientation="vertical">
 
-                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/oneplusimg"
                             android:layout_width="56dp"
                             android:layout_height="54dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/oneplusmobiles"
+                            android:src="@drawable/gallery"
+                            app:civ_border_color="@color/black"
+                            app:civ_border_overlay="false"
+                            app:civ_border_width=".7dp"
                             app:civ_circle_background_color="#E4E4E4" />
 
                         <TextView
@@ -89,11 +121,15 @@
                         android:layout_height="70dp"
                         android:orientation="vertical">
 
-                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/fashionimg"
                             android:layout_width="56dp"
                             android:layout_height="54dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/clothes"
+                            android:src="@drawable/gallery"
+                            app:civ_border_color="@color/black"
+                            app:civ_border_overlay="false"
+                            app:civ_border_width=".7dp"
                             app:civ_circle_background_color="#E4E4E4" />
 
                         <TextView
@@ -105,15 +141,20 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/Electronics"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:orientation="vertical">
 
-                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/ElectImg"
                             android:layout_width="56dp"
                             android:layout_height="54dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/electronics"
+                            android:src="@drawable/gallery"
+                            app:civ_border_color="@color/black"
+                            app:civ_border_overlay="false"
+                            app:civ_border_width=".7dp"
                             app:civ_circle_background_color="#E4E4E4" />
 
                         <TextView
@@ -129,11 +170,15 @@
                         android:layout_height="70dp"
                         android:orientation="vertical">
 
-                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/groceryimg"
                             android:layout_width="56dp"
                             android:layout_height="54dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/grocery"
+                            android:src="@drawable/gallery"
+                            app:civ_border_color="@color/black"
+                            app:civ_border_overlay="false"
+                            app:civ_border_width=".7dp"
                             app:civ_circle_background_color="#E4E4E4" />
 
                         <TextView
@@ -145,16 +190,20 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/HomeApplianceLayout"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:orientation="vertical">
 
-                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/Homeimg"
                             android:layout_width="56dp"
                             android:layout_height="54dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/home_appliances"
-
+                            android:src="@drawable/gallery"
+                            app:civ_border_color="@color/black"
+                            app:civ_border_overlay="false"
+                            app:civ_border_width=".7dp"
                             app:civ_circle_background_color="#E4E4E4" />
 
                         <TextView
@@ -166,15 +215,20 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/Appliance"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:orientation="vertical">
 
-                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/applianceimg"
                             android:layout_width="56dp"
                             android:layout_height="54dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/appliances"
+                            android:src="@drawable/gallery"
+                            app:civ_border_color="@color/black"
+                            app:civ_border_overlay="false"
+                            app:civ_border_width=".7dp"
                             app:civ_circle_background_color="#E4E4E4" />
 
                         <TextView
@@ -184,39 +238,169 @@
                             android:text="Appliances"
                             android:textColor="@color/black"></TextView>
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:orientation="vertical">
-
-                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                            android:layout_width="56dp"
-                            android:layout_height="54dp"
-                            android:layout_gravity="center_horizontal"
-                            />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:text="More"
-                            android:textColor="@color/black"></TextView>
-                    </LinearLayout>
-
-
                 </LinearLayout>
             </HorizontalScrollView>
 
-            <TextView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mobile_recylerView"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:gravity="center_horizontal|center_vertical"
-                android:text="Work in Progress "
-                android:textColor="@color/black"
-                android:textSize="22sp"></TextView>
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"></androidx.recyclerview.widget.RecyclerView>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/mobilerecyclershimmer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <include layout="@layout/home_page_shimmer_effect"></include>
+
+                <include layout="@layout/home_page_shimmer_effect"></include>
+
+                <include layout="@layout/home_page_shimmer_effect"></include>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+<!--            <com.google.android.ads.nativetemplates.TemplateView-->
+<!--                android:id="@+id/ad_template_view2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:gnt_template_type="@layout/gnt_custom_aravi_small"-->
+<!--                tools:ignore="MissingClass" />-->
+
+            <LinearLayout
+                android:id="@+id/fashionrecycleShimmer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/home_page_shimmer_effect"></include>
+
+                    <include layout="@layout/home_page_shimmer_effect"></include>
+
+                    <include layout="@layout/home_page_shimmer_effect"></include>
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/bottomwearmenrecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+<!--            <com.google.android.ads.nativetemplates.TemplateView-->
+<!--                android:id="@+id/ad_template_view"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:gnt_template_type="@layout/gnt_custom_aravi_small"-->
+<!--                tools:ignore="MissingClass"></com.google.android.ads.nativetemplates.TemplateView>-->
+
+            <LinearLayout
+                android:id="@+id/appliacerecycleShimmer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/home_page_shimmer_effect"></include>
+
+                    <include layout="@layout/home_page_shimmer_effect"></include>
+
+                    <include layout="@layout/home_page_shimmer_effect"></include>
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+<!--            <com.google.android.ads.nativetemplates.TemplateView-->
+<!--                android:id="@+id/ad_template_view5"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:gnt_template_type="@layout/gnt_custom_aravi_small"-->
+<!--                tools:ignore="MissingClass"></com.google.android.ads.nativetemplates.TemplateView>-->
+
+            <LinearLayout
+                android:id="@+id/ElectrecycleShimmer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/home_page_shimmer_effect"></include>
+
+                    <include layout="@layout/home_page_shimmer_effect"></include>
+
+                    <include layout="@layout/home_page_shimmer_effect"></include>
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RecycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp" />
+
+
+<!--            <com.google.android.ads.nativetemplates.TemplateView-->
+<!--                android:id="@+id/ad_template_view3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:gnt_template_type="@layout/gnt_custom_aravi_small"-->
+<!--                tools:ignore="MissingClass"></com.google.android.ads.nativetemplates.TemplateView>-->
+
+            <LinearLayout
+                android:id="@+id/HomerecycleShimmer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/home_page_shimmer_effect"></include>
+
+                    <include layout="@layout/home_page_shimmer_effect"></include>
+
+                    <include layout="@layout/home_page_shimmer_effect"></include>
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/appliacerecycle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp" />
+
+<!--            <com.google.android.ads.nativetemplates.TemplateView-->
+<!--                android:id="@+id/ad_template_view4"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:gnt_template_type="@layout/gnt_custom_aravi_small"-->
+<!--                tools:ignore="MissingClass"></com.google.android.ads.nativetemplates.TemplateView>-->
+
         </LinearLayout>
     </ScrollView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

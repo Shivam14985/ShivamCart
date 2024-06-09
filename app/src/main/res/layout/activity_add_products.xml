@@ -5,9 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".AddProuctsActivity"
     android:orientation="vertical"
+    tools:context=".AddProuctsActivity"
     tools:ignore="MissingDefaultResource">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/ToolbarBlue"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:padding="12dp"
+
+            android:src="@drawable/backarrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center_vertical"
+            android:text="Add Products"
+            android:textColor="@color/black"
+            android:textSize="28sp" />
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,19 +43,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout4"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="5dp"
                 android:background="@drawable/serch_bar_bg"
+                android:hint="Select Your Product's Type"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                android:hint="Enter Your Product Type"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
@@ -36,10 +64,12 @@
                     android:id="@+id/EtProductType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="none"
                     android:layout_marginHorizontal="18dp"
-                    android:background="#00000000"/>
+                    android:background="#00000000"
+                    android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
+
+
             <ImageView
                 android:id="@+id/MobilePhoto"
                 android:layout_width="match_parent"
@@ -53,141 +83,629 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="5dp"
-                android:textSize="18sp"
                 android:backgroundTint="#0D47A1"
-                android:text="Add images of product"
-                android:textStyle="bold" />
+                android:text="Add Main images of product"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout5"
+            <ImageView
+                android:id="@+id/MobilePhoto2"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginStart="5dp"
+                android:layout_height="400dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/AddMobileImages2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="5dp"
-                android:background="@drawable/serch_bar_bg"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="#0D47A1"
+                android:text="Add 2nd Image"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
-                android:hint="Enter Company of Your Product"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+            <ImageView
+                android:id="@+id/MobilePhoto3"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:visibility="gone" />
 
-                <AutoCompleteTextView
-                    android:id="@+id/EtProductCompany"
+            <Button
+                android:id="@+id/AddMobileImages3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="#0D47A1"
+                android:text="Add 3nd Image"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/MobilePhoto4"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/AddMobileImages4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="#0D47A1"
+                android:text="Add 4th Image"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/MobilePhoto5"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/AddMobileImages5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="#0D47A1"
+                android:text="Add 5th Image"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/HomeApplianceLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="18dp"
-                    android:background="#00000000"
-                    android:inputType="none" />
-            </com.google.android.material.textfield.TextInputLayout>
-            <EditText
-                android:id="@+id/ET_ProductDetails"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Select Category of Your Product"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/categoryHome"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="18dp"
+                        android:background="#00000000"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Select Company of Your Product"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/companyHomeAppliance"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="18dp"
+                        android:background="#00000000"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <EditText
+                    android:id="@+id/EtAppliancespecs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Product's Specification"
+                    android:inputType="textMultiLine"
+                    android:minHeight="56dp"
+                    android:padding="8dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/AddMobileLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="5dp"
-                android:minHeight="56dp"
-                android:background="@drawable/serch_bar_bg"
-                android:hint="Enter Model Of Your mobile"
-                android:inputType="textMultiLine"
-                android:padding="8dp" />
+                android:orientation="vertical"
+                android:visibility="gone">
 
-            <EditText
-                android:id="@+id/et_productRam"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="5dp"
-                android:height="56dp"
-                android:background="@drawable/serch_bar_bg"
-                android:hint="Enter Your Product's Ram"
-                android:inputType="number"
-                android:padding="8dp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout5"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Company of Your Product"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
-            <EditText
-                android:id="@+id/Et_ActualPRice"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="5dp"
-                android:height="56dp"
-                android:background="@drawable/serch_bar_bg"
-                android:hint="Actual Price of your Product"
-                android:inputType="number"
-                android:padding="8dp" />
+                    <AutoCompleteTextView
+                        android:id="@+id/ETmobileCompany"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="18dp"
+                        android:background="#00000000"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/Et_SellingPrice"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="5dp"
-                android:height="56dp"
-                android:background="@drawable/serch_bar_bg"
-                android:ems="10"
-                android:hint="Selling Price of your Product"
-                android:inputType="number"
-                android:padding="8dp" />
+                <EditText
+                    android:id="@+id/ETmobileModel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Model Of Mobile"
+                    android:inputType="textMultiLine"
+                    android:minHeight="56dp"
+                    android:padding="8dp" />
 
-            <EditText
-                android:id="@+id/Et_Dicount"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="5dp"
-                android:height="56dp"
-                android:background="@drawable/serch_bar_bg"
-                android:hint="Total Discount of your Product"
-                android:inputType="none"
-                android:padding="8dp" />
+                <EditText
+                    android:id="@+id/ETMobileRam"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Mobiles's Ram"
+                    android:inputType="number"
+                    android:padding="8dp" />
+                <EditText
+                    android:id="@+id/EtMobileStorage"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Storage of Product"
+                    android:inputType="number"
+                    android:padding="8dp" />
+                <EditText
+                    android:id="@+id/Processor"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Mobile's Processor"
+                    android:inputType="textMultiLine"
+                    android:padding="8dp" />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:id="@+id/mbile_color"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="5dp"
-                android:height="56dp"
-                android:background="@drawable/serch_bar_bg"
-                android:hint="Enter Color of your Product"
-                android:inputType="none"
-                android:padding="8dp"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:id="@+id/mobile_Storage"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="5dp"
-                android:height="56dp"
-                android:background="@drawable/serch_bar_bg"
-                android:hint="Enter Storage of your Product"
-                android:inputType="none"
-                android:padding="8dp"/>
+                <EditText
+                    android:id="@+id/RareCAmera"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Mobile's Rear Camera Pixel"
+                    android:inputType="number"
+                    android:padding="8dp" />
 
-            <CheckBox
-                android:id="@+id/checkBox"
+                <EditText
+                    android:id="@+id/Size"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Mobile's Display Size"
+                    android:inputType="numberPassword"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/BAttery"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Mobile's Battery Power"
+                    android:inputType="number"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/NetworkType"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Mobile's Network Type(5G/4G/3G)"
+                    android:inputType="textMultiLine"
+                    android:padding="8dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/FashionLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Have you check all above details carefully ?" />
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Select Your Product Is For"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/ETPRoductFor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="18dp"
+                        android:background="#00000000"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Select Your Product's Category"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/ETFashionCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="18dp"
+                        android:background="#00000000"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Select Your Product's Company"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/ETFashionProductCompany"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="18dp"
+                        android:background="#00000000"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <EditText
+                    android:id="@+id/ETProductSpecification"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Product's Specification/Quality"
+                    android:inputType="textMultiLine"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ElectronicsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Category Of Your Product"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/EtElectronicsCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="18dp"
+                        android:background="#00000000"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Autogjbmn"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Company Of Your Product"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/EtElectronicsCompany"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="18dp"
+                        android:background="#00000000"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <EditText
+                    android:id="@+id/EtElectronicModel"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Model Of Product"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/EtElectronicRam"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Ram Of Product"
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/EtElctronicStorage"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Storage Of Product"
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/EtElectronicsSpecs"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Specification Of Product"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ApplianceLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Select Your Product's Category"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/EtappliaceProductType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="18dp"
+                        android:background="#00000000"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Select Your Product's Company"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/EtappliaceProductCompany"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="18dp"
+                        android:background="#00000000"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <EditText
+                    android:id="@+id/ETAppliacSpecifications"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Specification of your Product"
+                    android:inputType="textMultiLine"
+                    android:padding="8dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/CommonForAllPRoducts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/ETActualPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Actual Price of your Product"
+                    android:inputType="number"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/EtSellingPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:ems="10"
+                    android:hint="Selling Price of your Product"
+                    android:inputType="number"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/EtDiscount"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Total Discount of your Product"
+                    android:inputType="none"
+                    android:maxLength="2"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/ETMobileColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:height="56dp"
+                    android:background="@drawable/serch_bar_bg"
+                    android:hint="Enter Color of your Product"
+                    android:padding="8dp" />
+            </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/UploadToDatabase"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
                 android:layout_marginTop="10dp"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:background="@drawable/btn_upload"
-                android:text="Sell Your Product" />
+                android:background="@drawable/serch_bar_bg"
+                android:enabled="false"
+                android:text="Sell Your Product"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

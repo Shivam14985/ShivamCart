@@ -1,12 +1,10 @@
 package com.example.shivamscart;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +12,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.shivamscart.Models.Users;
 import com.example.shivamscart.Services.NetworkBroadcast;
 import com.example.shivamscart.databinding.ActivityOtpAthenticationBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,44 +30,61 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.concurrent.TimeUnit;
 
 public class OtpAthentication extends AppCompatActivity {
-ActivityOtpAthenticationBinding binding;
-FirebaseAuth auth;
-FirebaseDatabase database;
+    ActivityOtpAthenticationBinding binding;
+    FirebaseAuth auth;
+    FirebaseDatabase database;
+    ProgressDialog progressDialog;
     String phoneNumber, otp;
+    PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallback;
     private String verificationCode;
     private BroadcastReceiver broadcastReceiver;
-    PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivityOtpAthenticationBinding.inflate(getLayoutInflater());
+        binding = ActivityOtpAthenticationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.progress.setVisibility(View.VISIBLE);
-        binding.hvgvgc.setVisibility(View.GONE);
-        binding.progress.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                binding.progress.setVisibility(View.GONE);
-                binding.hvgvgc.setVisibility(View.VISIBLE);
-            }
-        },1500);
-        broadcastReceiver=new NetworkBroadcast();
-        registerReceiver(broadcastReceiver,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
-        StartFirebaseLogin();
-        auth=FirebaseAuth.getInstance();
-        database=FirebaseDatabase.getInstance();
-        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.bounce);
-        final Animation animation1 = AnimationUtils.loadAnimation(this, R.anim.bonceexit);
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Registering");
+
+        broadcastReceiver = new NetworkBroadcast();
+        registerReceiver(broadcastReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+        StartFirebaseLogin();
+        auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+
+        binding.SingUpUsingEmil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Change the background color temporarily
+                int originalColor = Color.parseColor("#FFFFFFFF");
+                int clickedColor = Color.parseColor("#E8E8E8"); // Replace with your desired color
+
+                // Change background color when clicked
+                binding.SingUpUsingEmil.setBackgroundColor(clickedColor);
+
+                // Set a delayed runnable to revert the color after a short duration (e.g., 500 milliseconds)
+                binding.SingUpUsingEmil.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        binding.SingUpUsingEmil.setBackgroundColor(originalColor);
+                    }
+                }, 100);
+                Intent intent = new Intent(OtpAthentication.this, SignUp.class);
+                startActivity(intent);
+            }
+        });
         binding.SendOtp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final Animation animation = AnimationUtils.loadAnimation(OtpAthentication.this, R.anim.bounce);
+                final Animation animation1 = AnimationUtils.loadAnimation(OtpAthentication.this, R.anim.bonceexit);
                 binding.SendOtp.startAnimation(animation);
                 binding.SendOtp.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        
+
                         binding.SendOtp.startAnimation(animation1);
                     }
                 }, 0);
@@ -73,8 +92,7 @@ FirebaseDatabase database;
                 binding.Failed.setVisibility(View.GONE);
                 binding.progressBar.setVisibility(View.VISIBLE);
                 phoneNumber = binding.Phone.getText().toString();
-                PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                        phoneNumber,                // Phone number to verify
+                PhoneAuthProvider.getInstance().verifyPhoneNumber("+91"+phoneNumber,                // Phone number to verify
                         60,                           // Timeout duration
                         TimeUnit.SECONDS,                // Unit of timeout
                         OtpAthentication.this,        // Activity (for callback binding)
@@ -85,37 +103,39 @@ FirebaseDatabase database;
         binding.SubmitOtp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressDialog.show();
                 otp = binding.otpsubmit.getText().toString();
                 PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCode, otp);
                 SigninWithPhone(credential);
             }
         });
     }
+
     private void SigninWithPhone(PhoneAuthCredential credential) {
-        auth.signInWithCredential(credential)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(OtpAthentication.this, "Welcome"+binding.EtName.getText().toString(), Toast.LENGTH_LONG).show();
+        auth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    progressDialog.dismiss();
+                    binding.registeredsuccess.setVisibility(View.VISIBLE);
+                    binding.layout.setVisibility(View.GONE);
+                    binding.registeredsuccess.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(OtpAthentication.this, "Welcome" + binding.EtName.getText().toString(), Toast.LENGTH_LONG).show();
                             database.getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("number").setValue(phoneNumber);
                             database.getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("name").setValue(binding.EtName.getText().toString());
                             database.getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("seller").setValue("false");
-                            binding.hvgvgc.setVisibility(View.GONE);
-                            binding.registeredsuccess.setVisibility(View.VISIBLE);
-                            binding.registeredsuccess.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Intent intent=new Intent(OtpAthentication.this, MainActivity.class);
-                                    startActivity(intent);
-                                }
-                            },4700);
-
-                        } else {
-                            Toast.makeText(OtpAthentication.this, "Incorrect OTP", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(OtpAthentication.this, MainActivity.class);
+                            startActivity(intent);
                         }
-                    }
-                });
+                    },4500);
+                } else {
+                    progressDialog.dismiss();
+                    Toast.makeText(OtpAthentication.this, "Incorrect OTP", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void StartFirebaseLogin() {
@@ -143,7 +163,7 @@ FirebaseDatabase database;
                 binding.Success.setVisibility(View.VISIBLE);
                 binding.otpsubmitt.setVisibility(View.VISIBLE);
                 binding.SubmitOtp.setVisibility(View.VISIBLE);
-                Toast.makeText(OtpAthentication.this, "Code sent to "+phoneNumber, Toast.LENGTH_LONG).show();
+                Toast.makeText(OtpAthentication.this, "Code sent to " + phoneNumber, Toast.LENGTH_LONG).show();
             }
         };
     }

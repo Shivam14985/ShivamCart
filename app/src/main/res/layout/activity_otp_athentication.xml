@@ -7,19 +7,12 @@
     android:background="@color/white"
     android:orientation="vertical"
     tools:context=".OtpAthentication">
-<ProgressBar
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:id="@+id/progress"
-    android:layout_margin="180dp"
-    android:visibility="gone"
-    android:indeterminateTint="@color/black"></ProgressBar>
+
+
     <ScrollView
+        android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/hvgvgc"
-        >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,6 +58,8 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -78,8 +73,7 @@
                     app:cursorColor="@color/black"
                     app:hintTextColor="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/EtNames">
+                    app:layout_constraintTop_toBottomOf="@+id/EtNames">
 
                     <!--this is the actual edit text which takes the input-->
                     <com.google.android.material.textfield.TextInputEditText
@@ -88,10 +82,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="34dp"
                         android:background="#00FFFFFF"
-                        android:ems="10"
+                        android:maxLength="10"
                         android:inputType="phone"
                         android:maxEms="10"
-                        android:text="+91"
                         android:minEms="10"
                         android:textColor="@color/black" />
 
@@ -114,24 +107,24 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginEnd="10dp"
-                    app:lottie_rawRes="@raw/success"
                     android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
                     app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
                     app:layout_constraintTop_toTopOf="@+id/textInputLayout"
-                    app:lottie_autoPlay="true"/>
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/success" />
 
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/Failed"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginEnd="10dp"
-                    app:lottie_rawRes="@raw/failed"
                     android:visibility="gone"
-                    app:lottie_autoPlay="true"
                     app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
                     app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-                    app:layout_constraintTop_toTopOf="@+id/textInputLayout"></com.airbnb.lottie.LottieAnimationView>
+                    app:layout_constraintTop_toTopOf="@+id/textInputLayout"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/failed"></com.airbnb.lottie.LottieAnimationView>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/SendOtp"
@@ -194,14 +187,48 @@
                     tools:layout_editor_absoluteX="48dp"></androidx.appcompat.widget.AppCompatButton>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <LinearLayout
+                android:id="@+id/SingUpUsingEmil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="2dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/black"></View>
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Sign Up Using Email and Password"
+                    android:textColor="@color/black" />
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="2dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/black"></View>
+            </LinearLayout>
+
+
         </LinearLayout>
     </ScrollView>
+
     <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/registeredsuccess"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/registeredsuccess"
-        app:lottie_rawRes="@raw/successfully_register"
         android:visibility="gone"
-        app:lottie_autoPlay="true">
-    </com.airbnb.lottie.LottieAnimationView>
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/successfully_register"></com.airbnb.lottie.LottieAnimationView>
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -9,6 +9,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/ToolbarBlue"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center_vertical"
+            android:text="Categories"
+            android:textColor="@color/black"
+            android:textSize="28sp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
@@ -24,7 +42,8 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/oneplus" />
+                android:id="@+id/oneplusimg"
+                android:src="@drawable/gallery"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -45,9 +64,10 @@
 
             <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="80dp"
+                android:id="@+id/fashionimg"
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/clothes" />
+                android:src="@drawable/gallery" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -59,7 +79,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/electronic"
+            android:id="@+id/Electronics"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -68,12 +88,13 @@
 
             <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="80dp"
+                android:id="@+id/ElectImg"
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/electronics" />
+                android:src="@drawable/gallery" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="Electronics"
@@ -98,9 +119,10 @@
 
             <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="80dp"
+                android:id="@+id/groceryimg"
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/grocery" />
+                android:src="@drawable/gallery" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -121,9 +143,10 @@
 
             <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="80dp"
+                android:id="@+id/Homeimg"
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/home_appliances" />
+                android:src="@drawable/gallery" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -135,7 +158,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/Appliances"
+            android:id="@+id/Appliance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -144,15 +167,16 @@
 
             <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="80dp"
+                android:id="@+id/applianceimg"
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/appliances" />
+                android:src="@drawable/gallery" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="Appliances"
+                android:text="Appliance"
                 android:textColor="@color/black"
                 android:textSize="20sp"></TextView>
         </LinearLayout>

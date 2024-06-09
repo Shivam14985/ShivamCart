@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
     tools:context=".SellerActivity">
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/ToolbarBlue"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:padding="12dp"
+            android:src="@drawable/backarrow" />
+
+        <TextView
+            android:id="@+id/tootext"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="28sp" />
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,131 +41,175 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/linearSeller"
-            android:visibility="gone"
-            >
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@drawable/seller_banner"></ImageView>
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="5dp"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/become_seller"
-                android:textColor="@color/black"
-                android:textSize="17dp"></TextView>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="5dp"
-                android:background="#707070"></View>
+            <ProgressBar
+                android:id="@+id/checkingseller"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:indeterminateTint="@color/black"
+                android:layout_gravity="center"></ProgressBar>
 
             <LinearLayout
+                android:id="@+id/linearSeller"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <ImageView
-                    android:layout_width="150dp"
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:src="@drawable/delivery_guy"></ImageView>
+                    android:src="@drawable/gallery"></ImageView>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="2dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginRight="5dp"
-                    android:text="You can sell your products all over the India. We provides our Seller a best delivery experience, this is the reason why customers and sellers both are happy with our platform  "
+                    android:text="@string/become_seller"
                     android:textColor="@color/black"
                     android:textSize="17dp"></TextView>
-            </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#707070"></View>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#707070"></View>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/delivery_guy"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/gallery"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginRight="5dp"
+                        android:text="You can sell your products all over the India. We provides our Seller a best delivery experience, this is the reason why customers and sellers both are happy with our platform  "
+                        android:textColor="@color/black"
+                        android:textSize="17dp"></TextView>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#707070"></View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="2dp"
+                        android:layout_weight="1"
+                        android:text="We provide fast delivery. We can deliver your products to customers in just one day.this is the reason why customer likes our platform. "
+                        android:textColor="@color/black"
+                        android:textSize="17dp"></TextView>
+
+                    <ImageView
+                        android:id="@+id/fast"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/gallery"></ImageView>
+                </LinearLayout>
 
                 <TextView
+                    android:id="@+id/BeSeller"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:text="We provide fast delivery. We can deliver your products to customers in just one day.this is the reason why customer likes our platform. "
-                    android:textColor="@color/black"
-                    android:textSize="17dp"></TextView>
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Become a Seller Now "
+                    android:textColor="#004BBF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"></TextView>
 
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:src="@drawable/fast"></ImageView>
+                <ProgressBar
+                    android:id="@+id/progresssell"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:indeterminateTint="@color/black"
+                    android:visibility="gone"></ProgressBar>
+
+                <TextView
+                    android:id="@+id/VerifyEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:backgroundTint="#DD7316"
+                    android:drawableStart="@drawable/google"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Verify Your Google Account"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
             </LinearLayout>
-            <TextView
-                android:id="@+id/BeSeller"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Become a Seller Now "
-                android:textColor="#004BBF"
-                android:textSize="16sp"
-                android:layout_gravity="center_horizontal"
-                android:textStyle="bold">
-            </TextView>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/VerifyEmail"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_edittext"
-                android:backgroundTint="#DD7316"
-                android:drawableStart="@drawable/google"
-                android:padding="10dp"
-                android:visibility="gone"
-                android:text="Verify Your Google Account"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/uploading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/uploading"
                 android:visibility="gone">
+
                 <Button
                     android:id="@+id/AddMobiles"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/black"
-                    android:text="Add Mobiles"
-                    android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="@+id/mobile_recylerView"
-                    app:layout_constraintEnd_toEndOf="@+id/mobile_recylerView"
-                    app:layout_constraintTop_toTopOf="@+id/mobile_recylerView"
-                    app:layout_constraintVertical_bias="1.0" />
+                    android:text="Add Product"
+                    android:textColor="@color/white" />
+
+<!--                <TextView-->
+<!--                    android:id="@+id/addtv"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:gravity="center_horizontal"-->
+<!--                    android:text="Add Your First Products"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="28sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:visibility="gone"></TextView>-->
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:indeterminateTint="@color/black"></ProgressBar>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/MyProducts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </LinearLayout>
+
+
         </LinearLayout>
     </ScrollView>
 </androidx.appcompat.widget.LinearLayoutCompat>

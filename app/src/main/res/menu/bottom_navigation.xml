@@ -14,7 +14,7 @@
         android:id="@+id/notification"
         android:title="notification"
         android:icon="@drawable/bell"
-        />
+        ></item>
     <item
         android:id="@+id/profile"
         android:title="Account"

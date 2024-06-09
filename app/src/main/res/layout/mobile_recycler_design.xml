@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_design_recycler"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -24,39 +23,10 @@
             android:background="@color/white">
             <ImageView
                 android:id="@+id/mobileImage"
-                android:layout_width="120dp"
-                android:layout_height="150dp"
-                android:src="@drawable/oneplusmobiles"></ImageView>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="-138dp"
-                android:layout_marginLeft="-10dp"
-                android:background="@drawable/dicount_bg"
-                >
-                <TextView
-                    android:id="@+id/mobileDiscount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/mobileActualPrice"
-                    android:layout_marginLeft="15dp"
-                    android:layout_toEndOf="@+id/mobileImage"
-                    android:text="22"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
+                android:layout_width="110dp"
+                android:layout_height="140dp"
+                android:layout_margin="5dp"></ImageView>
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@+id/mobileDiscount"
-                    android:layout_toEndOf="@+id/mobileDiscount"
-                    android:text="% off  "
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,7 +41,10 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
-
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/senddata"></TextView>
                 <TextView
                     android:id="@+id/mobileCompany"
                     android:layout_width="wrap_content"
@@ -138,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/mobileStorage"
+                    android:id="@+id/mobileRam"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/mobileDescription"
@@ -207,7 +180,33 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/mobileDiscount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mobileActualPrice"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toEndOf="@+id/mobileImage"
+                    android:text="22"
+                    android:textColor="#025C09"
+                    android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/mobileDiscount"
+                    android:layout_toEndOf="@+id/mobileDiscount"
+                    android:text="% off  "
+                    android:textColor="#025C09"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"

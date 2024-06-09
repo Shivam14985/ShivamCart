@@ -20,21 +20,21 @@ public class NetworkBroadcast extends BroadcastReceiver {
             NoInternetConnectionBinding binding = NoInternetConnectionBinding.inflate(LayoutInflater.from(context));
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setView(binding.getRoot());
-            Dialog dialog=builder.create();
-            dialog.show();
+            Dialog dialog = builder.create();
             dialog.setCanceledOnTouchOutside(false);
             dialog.setCancelable(false);
-
+            dialog.show();
             binding.TRy.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (isNetworkConnected(context)){
+                    if (isNetworkConnected(context)) {
                         dialog.dismiss();
-                    }else {
+                    } else {
                         Toast.makeText(context, "No Internet Connection ", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
+        } else {
         }
     }
 

@@ -1,30 +1,44 @@
 package com.example.shivamscart;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.animation.Animator;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.shivamscart.databinding.ActivitySplashScreenBinding;
 
 public class SplashScreen extends AppCompatActivity {
+    ActivitySplashScreenBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
-
-        new Handler().postDelayed(new Runnable() {
+        binding = ActivitySplashScreenBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        binding.lottieAnimationView.addAnimatorListener(new Animator.AnimatorListener() {
             @Override
-            public void run() {
-                // on below line we are
-                // creating a new intent
+            public void onAnimationStart(@NonNull Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(@NonNull Animator animation) {
                 Intent i = new Intent(SplashScreen.this, LoginActivity.class);
                 startActivity(i);
-
-                // on the below line we are finishing
-                // our current activity.
                 finish();
             }
-        }, 4300);
+
+            @Override
+            public void onAnimationCancel(@NonNull Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(@NonNull Animator animation) {
+
+            }
+        });
     }
 }
