@@ -11,6 +11,7 @@ public class ProductsModel implements Serializable {
     private String AppliaceSpecification;
     private String lastSearched;
     private long addedAt;
+    private String searchabele;
 
     public ProductsModel() {
     }
@@ -272,4 +273,11 @@ public class ProductsModel implements Serializable {
         this.productId = productId;
     }
 
+    public String getSearchabele() {
+        return searchabele;
+    }
+
+    public void setSearchabele(String searchabele) {
+        this.searchabele = searchabele;
+    }
 }

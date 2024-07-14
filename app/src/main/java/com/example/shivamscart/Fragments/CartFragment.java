@@ -55,20 +55,20 @@ public class CartFragment extends Fragment {
         View view = binding.getRoot();
         ArrayList<ProductsModel> list = new ArrayList<>();
         CartAdapter adapters = new CartAdapter(list, getContext());
-        LinearLayoutManager linearLayoutManager = new GridLayoutManager(getContext(),2);
+        LinearLayoutManager linearLayoutManager = new GridLayoutManager(getContext(), 2);
         binding.CartRecycler.setLayoutManager(linearLayoutManager);
         binding.CartRecycler.setAdapter(adapters);
 
         database.getReference().child("Users").child(auth.getUid()).child("Cart").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    list.clear();
-                    for (DataSnapshot dataSnapshot:snapshot.getChildren()){
-                        ProductsModel model=dataSnapshot.getValue(ProductsModel.class);
-                        list.add(model);
-                        dialog.dismiss();
-                    }
-                    adapters.notifyDataSetChanged();
+                list.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    ProductsModel model = dataSnapshot.getValue(ProductsModel.class);
+                    list.add(model);
+                    dialog.dismiss();
+                }
+                adapters.notifyDataSetChanged();
             }
 
             @Override

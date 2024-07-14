@@ -62,7 +62,8 @@
                 android:layout_marginTop="2dp"
                 android:layout_gravity="center_horizontal"
                 app:adSize="BANNER"
-                app:adUnitId="ca-app-pub-5928796239739806/3863274069"></com.google.android.gms.ads.AdView>
+                android:visibility="gone"
+                app:adUnitId="ca-app-pub-5928796239739806/9403058129"></com.google.android.gms.ads.AdView>
 
             <com.denzcoskun.imageslider.ImageSlider
                 android:id="@+id/image_slider"

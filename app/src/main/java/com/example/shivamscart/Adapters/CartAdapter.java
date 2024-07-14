@@ -47,7 +47,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.viewHolder> {
         ProductsModel model = list.get(position);
         Picasso.get().load(model.getImage()).placeholder(R.drawable.gallery).into(holder.binding.imageappliance);
         holder.binding.companyapp.setText(Html.fromHtml("<b>" + model.getCompany() + "</b>" + " " + model.getModel()));
-        holder.binding.specs.setText(model.getHomeApplianceSpecs());
         holder.binding.colorapp.setText(model.getColor());
         holder.binding.mobileActualPrice.setText(Html.fromHtml("<s>" + model.getActualPrice() + "</s>"));
         holder.binding.mobilePrice.setText(model.getSellingPrice());
@@ -62,6 +61,18 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.viewHolder> {
             holder.binding.mobileRam.setText(model.getMobileRam() + "GB RAM");
             holder.binding.colorapp.setText("(" + model.getColor() + ", " + model.getMobileStorage() + "GB)");
            }
+        if (model.getProductType().equals("Fashion")){
+            holder.binding.specs.setText(model.getFashionSpecification());
+        }
+        if (model.getProductType().equals("Electronics")){
+            holder.binding.specs.setText(model.getElectronicsSpecs());
+        }
+        if (model.getProductType().equals("Home")){
+            holder.binding.specs.setText(model.getHomeApplianceSpecs());
+        }
+        if (model.getProductType().equals("Appliances")){
+            holder.binding.specs.setText(model.getAppliaceSpecification());
+        }
         holder.binding.clicks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

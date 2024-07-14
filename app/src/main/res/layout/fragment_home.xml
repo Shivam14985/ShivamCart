@@ -73,6 +73,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="10dp"
+                android:clickable="true"
                 android:visibility="gone"
                 app:iss_auto_cycle="true"
                 app:iss_corner_radius="30"
@@ -82,7 +83,8 @@
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
                 android:layout_marginTop="8dp">
 
                 <LinearLayout
@@ -166,6 +168,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/GroceryLayout"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:orientation="vertical">
@@ -265,13 +268,6 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-<!--            <com.google.android.ads.nativetemplates.TemplateView-->
-<!--                android:id="@+id/ad_template_view2"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:gnt_template_type="@layout/gnt_custom_aravi_small"-->
-<!--                tools:ignore="MissingClass" />-->
-
             <LinearLayout
                 android:id="@+id/fashionrecycleShimmer"
                 android:layout_width="match_parent"
@@ -299,12 +295,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
-<!--            <com.google.android.ads.nativetemplates.TemplateView-->
-<!--                android:id="@+id/ad_template_view"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:gnt_template_type="@layout/gnt_custom_aravi_small"-->
-<!--                tools:ignore="MissingClass"></com.google.android.ads.nativetemplates.TemplateView>-->
+            <!--            <com.google.android.ads.nativetemplates.TemplateView-->
+            <!--                android:id="@+id/ad_template_view"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:gnt_template_type="@layout/gnt_custom_aravi_small"-->
+            <!--                tools:ignore="MissingClass"></com.google.android.ads.nativetemplates.TemplateView>-->
 
             <LinearLayout
                 android:id="@+id/appliacerecycleShimmer"
@@ -329,12 +325,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-<!--            <com.google.android.ads.nativetemplates.TemplateView-->
-<!--                android:id="@+id/ad_template_view5"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:gnt_template_type="@layout/gnt_custom_aravi_small"-->
-<!--                tools:ignore="MissingClass"></com.google.android.ads.nativetemplates.TemplateView>-->
+            <!--            <com.google.android.ads.nativetemplates.TemplateView-->
+            <!--                android:id="@+id/ad_template_view5"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:gnt_template_type="@layout/gnt_custom_aravi_small"-->
+            <!--                tools:ignore="MissingClass"></com.google.android.ads.nativetemplates.TemplateView>-->
 
             <LinearLayout
                 android:id="@+id/ElectrecycleShimmer"
@@ -361,12 +357,12 @@
                 android:layout_marginBottom="10dp" />
 
 
-<!--            <com.google.android.ads.nativetemplates.TemplateView-->
-<!--                android:id="@+id/ad_template_view3"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:gnt_template_type="@layout/gnt_custom_aravi_small"-->
-<!--                tools:ignore="MissingClass"></com.google.android.ads.nativetemplates.TemplateView>-->
+            <!--            <com.google.android.ads.nativetemplates.TemplateView-->
+            <!--                android:id="@+id/ad_template_view3"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:gnt_template_type="@layout/gnt_custom_aravi_small"-->
+            <!--                tools:ignore="MissingClass"></com.google.android.ads.nativetemplates.TemplateView>-->
 
             <LinearLayout
                 android:id="@+id/HomerecycleShimmer"
@@ -392,12 +388,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp" />
 
-<!--            <com.google.android.ads.nativetemplates.TemplateView-->
-<!--                android:id="@+id/ad_template_view4"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:gnt_template_type="@layout/gnt_custom_aravi_small"-->
-<!--                tools:ignore="MissingClass"></com.google.android.ads.nativetemplates.TemplateView>-->
+            <!--            <com.google.android.ads.nativetemplates.TemplateView-->
+            <!--                android:id="@+id/ad_template_view4"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:gnt_template_type="@layout/gnt_custom_aravi_small"-->
+            <!--                tools:ignore="MissingClass"></com.google.android.ads.nativetemplates.TemplateView>-->
 
         </LinearLayout>
     </ScrollView>

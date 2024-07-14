@@ -14,7 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.denzcoskun.imageslider.constants.AnimationTypes;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.interfaces.ItemClickListener;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.shivamscart.Adapters.ElectronicsAdapter;
 import com.example.shivamscart.Adapters.FashionAdapter;
@@ -28,10 +30,7 @@ import com.example.shivamscart.Models.ProductsModel;
 import com.example.shivamscart.R;
 import com.example.shivamscart.SearchProductsActivity;
 import com.example.shivamscart.databinding.FragmentHomeBinding;
-//import com.google.android.ads.nativetemplates.NativeTemplateStyle;
-import com.google.android.gms.ads.AdLoader;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.nativead.NativeAd;
+import com.facebook.ads.AdView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -47,6 +46,7 @@ public class HomeFragment extends Fragment {
     FirebaseAuth auth;
     FirebaseDatabase database;
     FirebaseStorage storage;
+    private AdView adView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -84,20 +84,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        //Men Shirt & Tshirts REcycler
+        //FAshiom
         ArrayList<ProductsModel> Menlist = new ArrayList<>();
         FashionAdapter Menadapter = new FashionAdapter(Menlist, getContext());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true);
         linearLayoutManager.setStackFromEnd(true);
         binding.bottomwearmenrecycler.setLayoutManager(linearLayoutManager);
         binding.bottomwearmenrecycler.setAdapter(Menadapter);
-//        binding.shirttshirts.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                LinearLayoutManager expand=new GridLayoutManager(FashionActivity.this,2);
-//                binding.ShirtsREcycler.setLayoutManager(expand);
-//            }
-//        });
         database.getReference().child("Products").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -109,7 +102,10 @@ public class HomeFragment extends Fragment {
                             ProductsModel fashionModel = snapshot1.getValue(ProductsModel.class);
                             Menlist.add(fashionModel);
                             binding.fashionrecycleShimmer.setVisibility(View.GONE);
-
+                            String productID=snapshot1.getKey();
+                            String searchabele=fashionModel.getActualPrice()+" "+fashionModel.getColor()+" "+fashionModel.getCompany()+" "+fashionModel.getDicount()+ " % discount"+
+                                    fashionModel.getFashionFor()+" "+fashionModel.getFashionSpecification()+" "+fashionModel.getModel()+" "+fashionModel.getProductType()+" "+fashionModel.getSellingPrice();
+                            database.getReference().child("Products").child(productID).child("searchabele").setValue(searchabele);
                         } else {
                         }
                     }
@@ -136,12 +132,16 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
+                    Homelist.clear();
                     for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                         String type = snapshot1.child("productType").getValue().toString();
                         if (type.equals("Home")) {
                             ProductsModel model = snapshot1.getValue(ProductsModel.class);
                             Homelist.add(model);
                             binding.HomerecycleShimmer.setVisibility(View.GONE);
+                            String productID=snapshot1.getKey();
+                            String searchable=model.getActualPrice()+" "+model.getColor()+" "+model.getCompany()+" "+model.getDicount()+ " % discount "+model.getHomeApplianceSpecs()+" "+model.getModel()+" "+model.getProductType()+" "+model.getSellingPrice();
+                            database.getReference().child("Products").child(productID).child("searchabele").setValue(searchable);
                         } else {
                         }
                     }
@@ -166,12 +166,16 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
+                    listAppliance.clear();
                     for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                         String type = snapshot1.child("productType").getValue().toString();
                         if (type.equals("Appliances")) {
                             ProductsModel model = snapshot1.getValue(ProductsModel.class);
                             listAppliance.add(model);
                             binding.appliacerecycleShimmer.setVisibility(View.GONE);
+                            String productID=snapshot1.getKey();
+                            String searchable=model.getActualPrice()+" "+model.getColor()+" "+model.getCompany()+" "+model.getDicount()+ " % discount "+model.getAppliaceSpecification()+" "+model.getModel()+" "+model.getProductType()+" "+model.getSellingPrice();
+                            database.getReference().child("Products").child(productID).child("searchabele").setValue(searchable);
                         } else {
                         }
                     }
@@ -204,6 +208,9 @@ public class HomeFragment extends Fragment {
                             ProductsModel model = snapshot1.getValue(ProductsModel.class);
                             Electlist.add(model);
                             binding.ElectrecycleShimmer.setVisibility(View.GONE);
+                            String productID=snapshot1.getKey();
+                            String searchable=model.getActualPrice()+" "+model.getColor()+" "+model.getCompany()+" "+model.getDicount()+ " % discount "+model.getElectronicsCategory()+" "+model.getElectronicsRam()+" Gb Ram "+model.getElectronicsStorage()+" GB Rom Storage"+model.getElectronicsSpecs()+" "+model.getModel()+" "+model.getProductType()+" "+model.getSellingPrice();
+                            database.getReference().child("Products").child(productID).child("searchabele").setValue(searchable);
                         } else {
                         }
                     }
@@ -236,6 +243,9 @@ public class HomeFragment extends Fragment {
                         ProductsModel mobileModel = dataSnapshot.getValue(ProductsModel.class);
                         list.add(mobileModel);
                         binding.mobilerecyclershimmer.setVisibility(View.GONE);
+                        String productID=dataSnapshot.getKey();
+                        String searchable=mobileModel.getActualPrice()+" "+mobileModel.getColor()+" "+mobileModel.getCompany()+" "+mobileModel.getDicount()+ " % discount "+mobileModel.getMobileProcessor()+" "+mobileModel.getMobileRearCamera()+" Mp MEga Pixel Camera "+mobileModel.getMobileRam()+" Gb Ram "+mobileModel.getMobileStorage()+" Gb Rom Storage "+mobileModel.getModel()+" "+mobileModel.getProductType()+" "+mobileModel.getSellingPrice();
+                        database.getReference().child("Products").child(productID).child("searchabele").setValue(searchable);
                     } else {
                     }
                 }
@@ -372,6 +382,38 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        binding.GroceryLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Change the background color temporarily
+                int originalColor = Color.parseColor("#FFFFFFFF");
+                int clickedColor = Color.parseColor("#E8E8E8"); // Replace with your desired color
+
+                // Change background color when clicked
+                binding.GroceryLayout.setBackgroundColor(clickedColor);
+
+                // Set a delayed runnable to revert the color after a short duration (e.g., 500 milliseconds)
+                binding.GroceryLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        binding.GroceryLayout.setBackgroundColor(originalColor);
+                    }
+                }, 100);
+                Toast.makeText(getContext(), "This Section is not added now.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        binding.imageSlider.setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onItemSelected(int i) {
+                Toast.makeText(getContext(), "Selected", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void doubleClick(int i) {
+
+            }
+        });
+        binding.imageSlider.setSlideAnimation(AnimationTypes.DEPTH_SLIDE);
         Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/shivam-s-cart-c0e04.appspot.com/o/Images%2FWmhcXrTZLpODIr0MmHsf4RNBcqR2%2F1708578062421?alt=media&token=6493af4f-7eff-4fdb-bd89-0be5a106332a").placeholder(R.drawable.gallery).into(binding.oneplusimg);
         Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/shivam-s-cart-c0e04.appspot.com/o/Images%2FWmhcXrTZLpODIr0MmHsf4RNBcqR2%2F1708578124089?alt=media&token=b465d6a5-c563-4293-8282-d06fe74a9f80").placeholder(R.drawable.gallery).into(binding.fashionimg);
         Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/shivam-s-cart-c0e04.appspot.com/o/Images%2FWmhcXrTZLpODIr0MmHsf4RNBcqR2%2F1708578217602?alt=media&token=7b18a09b-a506-4be2-8a7e-38b60b24c0db").placeholder(R.drawable.gallery).into(binding.applianceimg);

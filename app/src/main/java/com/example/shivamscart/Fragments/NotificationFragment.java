@@ -58,13 +58,13 @@ public class NotificationFragment extends Fragment {
                         list.add(model);
                         binding.shimmerFrameLayout.setVisibility(View.GONE);
                     }
+                    adapter.notifyDataSetChanged();
                 } else {
                     binding.nothing.setVisibility(View.VISIBLE);
                     binding.shimmerFrameLayout.setVisibility(View.GONE);
                 }
-                adapter.notifyDataSetChanged();
-            }
 
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

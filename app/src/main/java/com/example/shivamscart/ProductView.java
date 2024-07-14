@@ -21,7 +21,9 @@ import com.example.shivamscart.Adapters.ProductSuugestionAdapter;
 import com.example.shivamscart.Models.ProductsModel;
 import com.example.shivamscart.Services.NetworkBroadcast;
 import com.example.shivamscart.databinding.ActivityProductViewBinding;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -62,13 +64,7 @@ public class ProductView extends AppCompatActivity {
         Calendar calendar;
         SimpleDateFormat simpleDateFormat;
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
-        AdRequest adRequest = new AdRequest.Builder().build();
-        binding.adView.loadAd(adRequest);
+        loadBannerAds();
 
         Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/shivam-s-cart-c0e04.appspot.com/o/Images%2FWmhcXrTZLpODIr0MmHsf4RNBcqR2%2Fram.png?alt=media&token=79e14473-e658-47d5-9e08-1ba3dfa50dd4").placeholder(R.drawable.gallery).into(binding.Ramimg);
         Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/shivam-s-cart-c0e04.appspot.com/o/Images%2FWmhcXrTZLpODIr0MmHsf4RNBcqR2%2Fprocessor.png?alt=media&token=71021cf1-1469-4042-82dc-105f6348645d").placeholder(R.drawable.gallery).into(binding.pROCESSORimg);
@@ -309,6 +305,7 @@ public class ProductView extends AppCompatActivity {
             binding.Appliancesspecs.setText(Appliances.getAppliaceSpecification());
 //            Picasso.get().load(Appliances.getImage()).placeholder(R.drawable.gallery).into(binding.mobileViewImage);
         }
+
         binding.rupay.setText(Html.fromHtml("<s>" + "₹40" + "</s>"));
         calendar = Calendar.getInstance();
         simpleDateFormat = new SimpleDateFormat("LLL dd");
@@ -337,9 +334,29 @@ public class ProductView extends AppCompatActivity {
                             intent.putExtra("mobileProduct", mobileModel);
                             startActivity(intent);
                         }
+                        if (fashion != null) {
+                            Intent intent = new Intent(ProductView.this, PaymentActivity.class);
+                            intent.putExtra("fashionProducts", fashion);
+                            startActivity(intent);
+                        }
+                        if (Electronics != null) {
+                            Intent intent = new Intent(ProductView.this, PaymentActivity.class);
+                            intent.putExtra("electronicsProducts", Electronics);
+                            startActivity(intent);
+                        }
+                        if (HomeAppliance != null) {
+                            Intent intent = new Intent(ProductView.this, PaymentActivity.class);
+                            intent.putExtra("HomeAppliancePRoducts", HomeAppliance);
+                            startActivity(intent);
+                        }
+                        if (Appliances != null) {
+                            Intent intent = new Intent(ProductView.this, PaymentActivity.class);
+                            intent.putExtra("AppliancesPRoducts", Appliances);
+                            startActivity(intent);
+
+                        }
                     }
                 }, 0);
-
             }
         });
         //click event on add to cart
@@ -512,6 +529,30 @@ public class ProductView extends AppCompatActivity {
                         }
                     });
                 }
+            }
+        });
+    }
+
+    public void loadBannerAds() {
+        //Ads Code
+        MobileAds.initialize(ProductView.this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        AdRequest adRequest = new AdRequest.Builder().build();
+        binding.adView.loadAd(adRequest);
+        binding.adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
+                loadBannerAds();
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                binding.adView.setVisibility(View.VISIBLE);
             }
         });
     }
